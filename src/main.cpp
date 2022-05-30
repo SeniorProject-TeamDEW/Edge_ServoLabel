@@ -65,9 +65,6 @@ void setup() {
    // put your setup code here, to run once:
     Serial.begin(115200);
 
-    servo.attach(4);
-    servo.write(0);
-
     initDevice();
     // If not configured it'll be configured and rebooted in the initDevice(),
     // If configured, initDevice will set the proper setting to cfg variable
@@ -85,9 +82,10 @@ void setup() {
     client.setCallback(message);
     iot_connect();
 
+    servo.attach(4);
+    servo.write(0);
+
 }
-
-
 
 void loop() {
     if (!client.connected()) {
