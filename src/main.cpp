@@ -33,10 +33,15 @@ void handleUserCommand(JsonDocument* root) {
         if (!strcmp(d["drive"], "on")) {
             servo.write(80); 
             publishData();
-        } else {
-            servo.write(0);
-            publishData();
         }
+      lastPublishMillis = - pubInterval;
+    }
+
+    if(d.containsKey("detect")) {
+        if (!strcmp(d["detect"], "on")) {
+            servo.write(0); 
+            publishData();
+        } 
       lastPublishMillis = - pubInterval;
     }
 
