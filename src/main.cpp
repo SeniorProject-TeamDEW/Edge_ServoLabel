@@ -3,6 +3,7 @@
 #include <IBMIOTF8266.h>
 
 String user_html = "";
+int                 cmdBaseLen = 10;
 
 Servo servo;
 
